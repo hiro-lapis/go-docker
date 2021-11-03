@@ -1,11 +1,14 @@
-# INTO container
+## Install Guide
+###  up container with hot Reload
+docker compose up
+
+###  access container
 docker exec -it go-docker_go_1 ash
 
-# References
+## References
 
-## docker
+## Dockerfile docker-compose.yml
 https://docs.docker.jp/engine/reference/builder.html
 
-## Go image
+## Golang image
 https://hub.docker.com/_/golang?tab=description&page=1
-# go-docker
