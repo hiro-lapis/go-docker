@@ -1,7 +1,7 @@
 version: "3"
 services:
     go:
-        build: .
+        build: ./go
         tty: true
         ports:
             - "8080:8080"
