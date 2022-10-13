@@ -1,6 +1,6 @@
 ## Intro
-This is an Golang dev-environment with hot reload(air).  
-If you run `docker compose up`, go container has up with hot reload, instantly!  
+This is an Golang **ver1.19** dev-environment with hot reload(air).  
+If you run `docker compose up`, go container has up with hot reload, instantly!
 
 ## Install Guide
 ###  up container with hot Reload
