@@ -17,8 +17,9 @@ ADD . ${ROOT}
 # import HOT RELOAD libraly
 # not using go get (its deprecated)
 RUN go mod tidy && \
-    go install github.com/cosmtrek/air@v1.40.4
-
+    go install github.com/cosmtrek/air@v1.40.4 && \
+    go get github.com/go-sql-driver/mysql && \
+    go install -tags 'mysql' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 CMD ["air", "-c", ".air.toml"]
 
 # if you adding libraly, rerun build and up command...
