@@ -34,8 +34,10 @@ docker exec -it go-docker_go_1 ash
 // create
 migrate create -ext sql -dir database/migrations -seq create_users
 
-// exec
-migrate -path database/migrations -database "mysql://user:pw@tcp(<db_container_name>:3306)/db" up 1
+// up
+migrate -path database/migrations -database $MYSQL_URL up 1
+// back
+migrate -path database/migrations -database $MYSQL_URL down 1
 ```
 
 ## References

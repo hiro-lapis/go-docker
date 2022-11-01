@@ -1,3 +1,4 @@
 /.vscode
 app/tmp/
 /.idea
+/app/vendor/*
