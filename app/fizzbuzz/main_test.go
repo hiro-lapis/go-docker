@@ -11,6 +11,10 @@ func TestFizzbuzz(t *testing.T) {
 	}
 
 	// 5の時はBuzzになるか
+	v = Fizzbuzz(5)
+	if v != "Buzz" {
+		t.Error("Expected Buzz", v)
+	}
 	// 15の時はFizzBuzzになるか
 	// 7の時は7になるか
 }
