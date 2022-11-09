@@ -5,7 +5,6 @@ import "testing"
 func TestFizzbuzz(t *testing.T) {
 	// 3の時はFizzになるか
 	v := Fizzbuzz(3)
-
 	if v != "Fizz" {
 		t.Error("Expected Fizz", v)
 	}
@@ -22,4 +21,8 @@ func TestFizzbuzz(t *testing.T) {
 	}
 
 	// 7の時は7になるか
+	v = Fizzbuzz(7)
+	if v != "7" {
+		t.Error("Expected 7", v)
+	}
 }
