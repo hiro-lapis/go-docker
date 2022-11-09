@@ -1,18 +1,45 @@
 ## Intro
-This is an Golang **ver1.19** dev-environment with hot reload(air).  
+
+This is an Golang **ver1.19** dev-environment with hot reload(air).
 If you run `docker compose up`, go container has up with hot reload, instantly!
 
 ## Install Guide
-###  up container with hot Reload
+
+### up container with hot Reload
 
 ```shell
 docker compose up
 ```
-###  access container
+
+### interactive tty container
+
+-   application
 
 ```shell
 docker exec -it go-docker_go_1 ash
 ```
+
+-   database
+    about following `MYSQL_USER` `MYSQL_PASSWORD`, refer to docker-compose.yml
+
+```shell
+ docker exec -it go-docker_db_1 bash -c 'mysql -u <MYSQL_USER> -p'
+```
+
+`Enter password: <MYSQL_PASSWORD>`
+
+### migration
+
+```
+// create
+migrate create -ext sql -dir database/migrations -seq create_users
+
+// up
+migrate -path database/migrations -database $MYSQL_URL up 1
+// back
+migrate -path database/migrations -database $MYSQL_URL down 1
+```
+
 ## References
 
 ## Dockerfile docker-compose.yml
