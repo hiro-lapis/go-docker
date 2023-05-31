@@ -1,7 +1,19 @@
 ## Intro
 
-This is an Golang(v1.19) and mysql(v8.0) dev-environment with hot reload(air).
+- Golang(v.1.19)
+- mysql(v.8.0)
+- nuxt(v3.2) with node(v18.14)
+
+This is an Golang and mysql dev-environment with hot reload(air).
 If you run `docker compose up`, go container has up with hot reload, instantly!
+frontend is also ignitionable.
+
+
+| container | HOST PORT  | CONTAINER PORT |
+|-----------| ---- |----------------|
+| golang    |  8080  | 8080           |
+| mysql     |  3306  | 3306           |
+| node      |  4000  | 3000           |
 
 ## Install Guide
 
@@ -39,6 +51,45 @@ migrate -path database/migrations -database $MYSQL_URL up 1
 // back
 migrate -path database/migrations -database $MYSQL_URL down 1
 ```
+
+### run as web server
+
+comment in below at main.go
+
+```.go
+	/*
+	 * run as web server
+	 * listen request
+	 * access to http://localhost:8080
+	 */
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":8080", nil)
+```
+
+then, `go run main.go`
+
+
+## frontend
+
+```
+docker exec -it go-docker_node_1 ash
+```
+
+- initialize project
+
+```
+// create with overwrite frontend directory
+
+cd ../ && pnpm dlx nuxi init --force frontend && pnpm install
+```
+
+- run frontend dev server
+
+```
+pnpm run dev
+```
+then, access http://localhost:4000
+
 
 ## References
 

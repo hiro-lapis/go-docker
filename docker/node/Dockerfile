@@ -15,4 +15,4 @@ RUN apk update && \
         && curl -sL https://unpkg.com/@pnpm/self-installer | node
 
 # install nuxt
-# CMD ["sh", "-c",  "cd ../ && pnpm dlx nuxi init --force ${PROJECT_NAME}"]
+# CMD ["sh", "-c",  "cd ../ && pnpm dlx nuxi init --force ${PROJECT_NAME} && pnpm install && pnpm run dev"]
