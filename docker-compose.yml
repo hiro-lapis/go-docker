@@ -1,7 +1,7 @@
 version: "3"
 services:
     go:
-        build: ./go
+        build: ./docker/go
         tty: true
         depends_on:
             - db
@@ -9,8 +9,19 @@ services:
             - "8080:8080"
         volumes:
             - ./app:/go/src/app
+    node:
+        build: ./docker/node
+        # ないと落ちるので設定
+        tty: true
+        depends_on:
+            - db
+            - go
+        volumes:
+            - ./frontend:/frontend
+        ports:
+            - "4000:3000"
     db:
-        build: ./mysql
+        build: ./docker/mysql
         environment:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: db
@@ -20,6 +31,6 @@ services:
         ports:
             - 3306:3306
         volumes:
-            - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnfl
+            - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnfl
 # volumes:
 #   mysql-db:
