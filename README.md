@@ -17,10 +17,16 @@ frontend is also ignitionable.
 
 ## Install Guide
 
-### up container with hot Reload
+### up all container
 
 ```shell
-docker compose up
+docker compose up -d --build
+```
+
+### up back container with hot Reload
+
+```shell
+docker compose up go
 ```
 
 ### interactive tty container
