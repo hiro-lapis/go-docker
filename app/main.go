@@ -18,10 +18,11 @@ func main() {
 	/*
 	 * run as web server
 	 * listen request
-	 * access to http://localhost:8080
+	 * access to http://localhost:8000
 	 */
 	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8080", nil)
+	// for Graphql playground, modify port
+	http.ListenAndServe(":8000", nil)
 	/**
 	 * db connection
 	 */

@@ -74,6 +74,33 @@ comment in below at main.go
 
 then, `go run main.go`
 
+## Graphql setup
+
+```
+// in go container, at ./app
+go install github.com/99designs/gqlgen@latest
+gqlgen version
+
+v0.17.22
+```
+
+then, generate sample code (on this project, already generated)
+
+```
+go get -u github.com/99designs/gqlgen
+
+ gqlgen init
+```
+
+then you can run sample Graphql server
+Avoiding duplicates listen port, make sure modifing main.go's code, http port except '8080'
+
+
+```go
+go run graphql/server.go
+
+2023/06/03 15:47:46 connect to http://localhost:8080/ for GraphQL playground
+```
 
 ## frontend
 
