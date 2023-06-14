@@ -8,6 +8,7 @@ ENV DSN user:pw@tcp(go-docker_db_1:3306)/db?charset=utf8mb4&parseTime=True&loc=L
 
 # update and git install (go get`s inner process using git...)
 RUN apk update && \
+    apk add alpine-sdk && \
     apk --no-cache add git
 
 # setting working dir
