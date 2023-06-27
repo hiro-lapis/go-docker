@@ -89,7 +89,7 @@ then, generate sample code (on this project, already generated)
 ```
 go get -u github.com/99designs/gqlgen
 
- gqlgen init
+gqlgen init
 ```
 
 then you can run sample Graphql server
@@ -100,6 +100,22 @@ Avoiding duplicates listen port, make sure modifing main.go's code, http port ex
 go run graphql/server.go
 
 2023/06/03 15:47:46 connect to http://localhost:8080/ for GraphQL playground
+```
+
+then you can access PlayGround `http://localhost:8080` on browser.  
+then you can throw query.
+
+```
+query {
+  todos {
+    id
+    text
+    done
+    user {
+      name
+    }
+  }
+}
 ```
 
 ## frontend
