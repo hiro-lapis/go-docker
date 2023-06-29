@@ -1,0 +1,13 @@
+pkgname="db"
+output="graphql/db"
+wipe=true
+add-global-variants=false
+no-tests=true
+
+[mysql]
+  dbname = "db"
+  host    = "go-docker-db-1"
+  port    = 3306
+  user    = "user"
+  pass    = "pw"
+  sslmode = "false"

@@ -3,7 +3,7 @@ FROM golang:1.19.2-alpine3.16
 ENV GOPATH /go
 ENV GO111MODULE on
 ENV ROOT=/go/src/app
-ENV MYSQL_URL mysql://user:pw@tcp(go-docker_db_1:3306)/db
+ENV MYSQL_URL mysql://user:pw@tcp(go-docker-db-1:3306)/db
 ENV DSN user:pw@tcp(go-docker_db_1:3306)/db?charset=utf8mb4&parseTime=True&loc=Local
 
 # update and git install (go get`s inner process using git...)
