@@ -2,7 +2,7 @@
 app/tmp/
 /.idea
 /app/vendor/*
-
+/app/graphql/vendor/*
 # frontend
 frontend/.nuxt
 frontend/.pnpm-store

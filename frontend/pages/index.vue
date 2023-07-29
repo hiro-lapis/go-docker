@@ -43,4 +43,4 @@ onMounted( async () => {
         <p>jsonplaceholder response:{{ placeholder }}</p>
     </template>
     </div>
-  </template>
+</template>
