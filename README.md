@@ -129,7 +129,7 @@ docker exec -it go-docker_node_1 ash
 ```
 // create with overwrite frontend directory
 
-cd ../ && pnpm dlx nuxi init --force frontend && pnpm install
+cd ../ && pnpm dlx nuxi init --force frontend && pnpm i --frozen-lockfile	 
 ```
 
 - run frontend dev server
@@ -138,6 +138,25 @@ cd ../ && pnpm dlx nuxi init --force frontend && pnpm install
 pnpm run dev
 ```
 then, access http://localhost:4000
+
+## FAQ
+
+Q. `gqlgen generate` results in `gqlgen: not found`   
+A. check PATH.
+
+```
+echo $PATH
+# /go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+
+echo $GOPATH
+# /go
+
+which go
+# /usr/local/go/bin/go
+export PATH="$HOME/go/bin:$PATH"
+```
+
 
 
 ## References
