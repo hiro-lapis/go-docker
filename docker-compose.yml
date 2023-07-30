@@ -20,6 +20,7 @@ services:
             - ./frontend:/frontend
         ports:
             - "4000:3000"
+            - 24678:24678 # adding for hot module reload
     db:
         build: ./docker/mysql
         environment:

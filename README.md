@@ -89,7 +89,7 @@ then, generate sample code (on this project, already generated)
 ```
 go get -u github.com/99designs/gqlgen
 
- gqlgen init
+gqlgen init
 ```
 
 then you can run sample Graphql server
@@ -100,6 +100,22 @@ Avoiding duplicates listen port, make sure modifing main.go's code, http port ex
 go run graphql/server.go
 
 2023/06/03 15:47:46 connect to http://localhost:8080/ for GraphQL playground
+```
+
+then you can access PlayGround `http://localhost:8080` on browser.  
+then you can throw query.
+
+```
+query {
+  todos {
+    id
+    text
+    done
+    user {
+      name
+    }
+  }
+}
 ```
 
 ## frontend
@@ -113,7 +129,7 @@ docker exec -it go-docker_node_1 ash
 ```
 // create with overwrite frontend directory
 
-cd ../ && pnpm dlx nuxi init --force frontend && pnpm install
+cd ../ && pnpm dlx nuxi init --force frontend && pnpm i --frozen-lockfile	 
 ```
 
 - run frontend dev server
@@ -122,6 +138,25 @@ cd ../ && pnpm dlx nuxi init --force frontend && pnpm install
 pnpm run dev
 ```
 then, access http://localhost:4000
+
+## FAQ
+
+Q. `gqlgen generate` results in `gqlgen: not found`   
+A. check PATH.
+
+```
+echo $PATH
+# /go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+
+echo $GOPATH
+# /go
+
+which go
+# /usr/local/go/bin/go
+export PATH="$HOME/go/bin:$PATH"
+```
+
 
 
 ## References

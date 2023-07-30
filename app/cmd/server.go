@@ -1,8 +1,9 @@
 package main
 
 import (
+	"go_docker/graphql/generated"
+	"go_docker/graphql/resolver"
 	"log"
-	"my_gql_server/graph"
 	"net/http"
 	"os"
 
@@ -18,8 +19,7 @@ func main() {
 		port = defaultPort
 	}
 
-	srv := handler.NewDefaultServer(graph.NewExecutableSchema(graph.Config{Resolvers: &graph.Resolver{}}))
-
+	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &resolver.Resolver{}}))
 	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
 	http.Handle("/query", srv)
 
