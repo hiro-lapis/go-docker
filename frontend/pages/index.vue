@@ -32,7 +32,7 @@ onMounted( async () => {
       </div>
       <AppAlert>
         This is an auto-imported component
-        </AppAlert>
+      </AppAlert>
     <p>if you can see like below, interact with backend is succeeded</p>
     <img src="img/example.png" alt="" :style="{ width: '300px'}">
 
@@ -43,4 +43,4 @@ onMounted( async () => {
         <p>jsonplaceholder response:{{ placeholder }}</p>
     </template>
     </div>
-  </template>
+</template>

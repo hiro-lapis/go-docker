@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"time"
 	// "go_docker/database/driver"
 	// "go_docker/database/users"
 	// "time"
@@ -18,10 +19,12 @@ func main() {
 	/*
 	 * run as web server
 	 * listen request
-	 * access to http://localhost:8080
+	 * access to http://localhost:8000
 	 */
 	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8080", nil)
+	// for Graphql playground, modify port
+	// Note: avoid conflict to server.go's Port setting
+	http.ListenAndServe(":8000", nil)
 	/**
 	 * db connection
 	 */
@@ -39,7 +42,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Origin:", origin)
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "http://localhost:4000")
-	message := "Hello, World from golang!"
+	message := "Hello, World from golang! "
+	message += time.Now().Format("2006-01-02 15:04:05")
 	response := map[string]string{"message": message}
 	json.NewEncoder(w).Encode(response)
 }
