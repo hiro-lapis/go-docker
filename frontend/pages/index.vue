@@ -28,7 +28,12 @@ onMounted( async () => {
     <div>
       <h1>Welcome to the homepage</h1>
       <div>
+        <div>
           <NuxtLink to="/about">About</NuxtLink>
+        </div>
+        <div>
+          <NuxtLink to="/apollo">Apollo client test</NuxtLink>
+        </div>
       </div>
       <AppAlert>
         This is an auto-imported component

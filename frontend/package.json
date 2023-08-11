@@ -1,4 +1,9 @@
 {
+  "pnpm": {
+    "overrides": {
+      "graphql": "16.6.0"
+    }
+  },
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -8,6 +13,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxtjs/apollo": "5.0.0-alpha.6",
     "nuxt": "^3.2.2"
   }
 }
