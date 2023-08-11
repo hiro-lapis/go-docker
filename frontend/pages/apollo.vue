@@ -14,7 +14,6 @@ const query = gql`
     }
   }
 `
-const title = ref<string>('タイトル')
 const datas = ref<Todo[]>([])
 // useAsyncQuery pattern
 // @see https://apollo.nuxtjs.org/getting-started/composables/#useasyncquery
@@ -56,7 +55,6 @@ onMounted(async () => {
   <p>here is a apllo client test</p>
   <NuxtLink to="/">Index</NuxtLink>
   <div>
-    <p>{{ title }}</p>
     <template v-if="datas && datas.length > 0">
       <p>{{ datas }}</p>
       <ul>
