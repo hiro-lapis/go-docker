@@ -6,3 +6,7 @@ node_modules
 .output
 .env
 dist
+
+# automaticly generated files
+graphql.schema.json
+src/generated

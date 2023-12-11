@@ -38,7 +38,7 @@ const fetchTodo = async () => {
   const { onResult } = await useQuery<Todos>(query, {})
   // on result is a function that will be called when the query is finished
   onResult((result) => {
-    datas.value = result.data?.todos as unknown as Todo[]
+    datas.value = result.data?.todos as Todo[]
   })
 }
 onMounted(async () => {
@@ -54,6 +54,7 @@ onMounted(async () => {
 <template>
   <p>here is a apllo client test</p>
   <NuxtLink to="/">Index</NuxtLink>
+  <NuxtLink to="/apollo-codegen">codegen driven api</NuxtLink>
   <div>
     <template v-if="datas && datas.length > 0">
       <p>{{ datas }}</p>

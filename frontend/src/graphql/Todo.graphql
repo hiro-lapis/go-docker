@@ -1,0 +1,22 @@
+query getTestString {
+    test
+}
+
+# ↓vueでベタ書きしていたクエリを.graphql上では↑のように書く
+# const query = gql`
+#   query getTodos {
+#     todos {
+#       id
+#       text
+#     }
+#   }
+# `
+
+# 新規作成
+mutation CreateTodo($input: NewTodo!) {
+    # operationName(arg: type) { subfield }
+    # operationName,subfield有無はサーバ定義と一致する必要がある
+    createTodo(input: $input) {}
+    # 入力した結果戻り値が不要な場合は↓のようにかく
+    # createTodo2(input: $input)
+}
