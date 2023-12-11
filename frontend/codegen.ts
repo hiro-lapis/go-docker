@@ -6,7 +6,10 @@ const config: CodegenConfig = {
   // http://<container>:<port>/query
   schema: 'http://go-docker-go-1:8080/query',
   // query,mutationの取得先
-  documents: ['pages/**/*.vue'],
+  // frontend/codegen.ts
+  // frontend/src/graphql/Todo.graphql
+  documents: ['./src/graphql/**/*.graphql'],
+  // documents: ['pages/**/*.vue'],
   // for better experience with the watcher
   ignoreNoDocuments: true,
   generates: {
@@ -17,6 +20,7 @@ const config: CodegenConfig = {
       config: {
         withCompositionFunctions: true,
         vueCompositionApiImportFrom: 'vue',
+        // vueApolloComposableImportFrom: "@vue/apollo-composable",
         scalars: {
           ULID: 'string',
           Uint: 'number',

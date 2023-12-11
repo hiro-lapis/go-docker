@@ -33,4 +33,5 @@ type Mutation {
 type Query {
   todos: [Todo!]!
   users: [User!]!
+  test: String!
 }
